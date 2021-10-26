@@ -3,15 +3,18 @@ package controller;
 import model.Game;
 import view.View;
 
-
 /**
  * Scenario controller for playing the game.
  */
 public class Player {
 
+  private enum Choice {
+    PLAY, HIT, STAND, QUIT, DEFAULT
+  }
+
   /**
    * Runs the play use case.
-
+   * 
    * @param game The game state.
    * @param view The view to use.
    * @return True as long as the game should continue.
@@ -27,15 +30,34 @@ public class Player {
     }
 
     int input = view.getInput();
-
+    Choice choice = Choice.DEFAULT;
     if (input == 'p') {
-      game.newGame();
+      choice = Choice.PLAY;
     } else if (input == 'h') {
-      game.hit();
+      choice = Choice.HIT;
     } else if (input == 's') {
-      game.stand();
+      choice = Choice.STAND;
+    } else if (input == 'q') {
+      choice = Choice.QUIT;
     }
 
-    return input != 'q';
+    switch (choice) {
+    case PLAY:
+      game.newGame();
+      break;
+    case HIT:
+      game.hit();
+      break;
+    case STAND:
+      game.stand();
+      break;
+    case QUIT:
+      System.exit(0);
+      break;
+    default:
+      return input != 'q';
+    }
+
+    return true;
   }
 }
