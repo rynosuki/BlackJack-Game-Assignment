@@ -20,24 +20,6 @@ class AmericanNewGameStrategy implements NewGameStrategy {
    * player. The last card is not shown to the players.
    */
   public boolean newGame(Deck deck, Dealer dealer, Player player) {
-    // Card.Mutable c;
-
-    // c = deck.getCard();
-    // c.show(true);
-    // player.dealCard(c);
-
-    // c = deck.getCard();
-    // c.show(true);
-    // dealer.dealCard(c);
-
-    // c = deck.getCard();
-    // c.show(true);
-    // player.dealCard(c);
-
-    // c = deck.getCard();
-    // c.show(false);
-    // dealer.dealCard(c);
-
     for (int i = 0; i < this.numberOfCardsToDraw; i++) {
       boolean showCard = true;
 

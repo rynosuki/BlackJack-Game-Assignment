@@ -25,7 +25,7 @@ public class Dealer extends Player {
 
     newGameRule = rulesFactory.getNewGameRule();
     hitRule = rulesFactory.getHitRule();
-    winRule = rulesFactory.getNWinRule();
+    winRule = rulesFactory.getWinRule();
   }
 
   /**
@@ -76,7 +76,7 @@ public class Dealer extends Player {
     } else if (calcScore() > maxScore) {
       return false;
     }
-    return winRule.doWin(this,player);  
+    return winRule.doWin(this, player);
   }
 
   /**

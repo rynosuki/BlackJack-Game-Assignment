@@ -20,7 +20,6 @@ public class RulesFactory {
    * Crates the rule to use when starting a new game.
    * 
    * @return The rule to use.
-   * 
    */
   public NewGameStrategy getNewGameRule() {
     return new AmericanNewGameStrategy();
@@ -31,7 +30,7 @@ public class RulesFactory {
    * 
    * @return The rule to use.
    */
-  public WinStrategy getNWinRule() {
+  public WinStrategy getWinRule() {
     return new PlayerWins();
   }
 }

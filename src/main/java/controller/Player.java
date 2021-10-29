@@ -16,10 +16,10 @@ public class Player extends IObserver {
 
   private View view;
 
-  private final static char play = 'p';
-  private final static char hit = 'h';
-  private final static char stand = 's';
-  private final static char quit = 'q';
+  private static final char play = 'p';
+  private static final char hit = 'h';
+  private static final char stand = 's';
+  private static final char quit = 'q';
 
   /**
    * Runs the play use case.

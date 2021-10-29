@@ -16,20 +16,6 @@ class InternationalNewGameStrategy implements NewGameStrategy {
   }
 
   public boolean newGame(Deck deck, Dealer dealer, Player player) {
-    // Card.Mutable c;
-
-    // c = deck.getCard();
-    // c.show(true);
-    // player.dealCard(c);
-
-    // c = deck.getCard();
-    // c.show(true);
-    // dealer.dealCard(c);
-
-    // c = deck.getCard();
-    // c.show(true);
-    // player.dealCard(c);
-
     for (int i = 0; i < numberOfCardsToDraw; i++) {
 
       if (i % 2 == 0) {
