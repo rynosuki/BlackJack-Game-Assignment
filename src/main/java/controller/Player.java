@@ -6,6 +6,7 @@ import view.View;
 
 /**
  * Scenario controller for playing the game.
+ * 
  */
 public class Player extends IObserver {
 
@@ -15,17 +16,20 @@ public class Player extends IObserver {
 
   private View view;
 
-  private final char play = 'p';
-  private final char hit = 'h';
-  private final char stand = 's';
-  private final char quit = 'q';
+  private final static char play = 'p';
+  private final static char hit = 'h';
+  private final static char stand = 's';
+  private final static char quit = 'q';
 
   /**
    * Runs the play use case.
    * 
    * @param game The game state.
+   * 
    * @param view The view to use.
+   * 
    * @return True as long as the game should continue.
+   * 
    */
   public boolean play(Game game, View view) {
     this.view = view;

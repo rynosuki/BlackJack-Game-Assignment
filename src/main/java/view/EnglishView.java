@@ -2,11 +2,13 @@ package view;
 
 /**
  * Implements an english console view.
+ * 
  */
 public class EnglishView implements View {
 
   /**
    * Shows a welcome message.
+   * 
    */
   public void displayWelcomeMessage() {
     for (int i = 0; i < 50; i++) {
@@ -20,6 +22,7 @@ public class EnglishView implements View {
    * Returns pressed characters from the keyboard.
    * 
    * @return the pressed character.
+   * 
    */
   public int getInput() {
     try {
@@ -59,6 +62,7 @@ public class EnglishView implements View {
    * Displays the winner of the game.
    * 
    * @param dealerIsWinner True if the dealer is the winner.
+   * 
    */
   public void displayGameOver(boolean dealerIsWinner) {
     System.out.println("GameOver: ");
@@ -70,6 +74,14 @@ public class EnglishView implements View {
 
   }
 
+  /**
+   * Displays the card recently drawns.
+   * 
+   * @param p Player that drew the card. Used to determine what to print.
+   * 
+   * @param c Card that that was drawn.
+   * 
+   */
   public void displayCardD(model.Player p, model.Card.Mutable c) {
     if (p.getClass().getName().contains("Player")) {
       System.out.print("Player got an ");

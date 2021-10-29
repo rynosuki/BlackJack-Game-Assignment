@@ -2,11 +2,13 @@ package view;
 
 /**
  * Implements a Swedish console view.
+ * 
  */
 public class SwedishView implements View {
 
   /**
    * Shows a welcome message.
+   * 
    */
   public void displayWelcomeMessage() {
     for (int i = 0; i < 50; i++) {
@@ -22,6 +24,7 @@ public class SwedishView implements View {
    * Returns pressed characters from the keyboard.
    * 
    * @return the pressed character.
+   * 
    */
   public int getInput() {
     try {
@@ -40,6 +43,7 @@ public class SwedishView implements View {
    * Displays a card.
    * 
    * @param card The card to display.
+   * 
    */
   public void displayCard(model.Card card) {
     if (card.getColor() == model.Card.Color.Hidden) {
@@ -64,6 +68,7 @@ public class SwedishView implements View {
    * Displays the winner of the game.
    * 
    * @param dealerIsWinner True if the dealer is the winner.
+   * 
    */
   public void displayGameOver(boolean dealerIsWinner) {
     System.out.println("Slut: ");

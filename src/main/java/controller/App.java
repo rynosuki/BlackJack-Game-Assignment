@@ -18,8 +18,8 @@ public class App {
     Game g = new Game();
     View v = new EnglishView(); // new SwedishView();
     Player ctrl = new Player();
-    g.getPlayer().attach(ctrl);
-    g.getDealer().attach(ctrl);
+    g.attachObserver(ctrl);
+    g.attachObserver(ctrl);
 
     while (ctrl.play(g, v)) {
 

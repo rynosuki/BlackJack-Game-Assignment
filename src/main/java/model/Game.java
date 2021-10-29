@@ -1,5 +1,7 @@
 package model;
 
+import controller.IObserver;
+
 /**
  * Represents the entirety of the game. Acts as a Facade to the model.
  */
@@ -106,12 +108,9 @@ public class Game {
     return player.calcScore();
   }
 
-  public Player getPlayer() {
-    return this.player;
-  }
-
-  public Dealer getDealer() {
-    return this.dealer;
+  public void attachObserver(IObserver observer) {
+    this.player.attach(observer);
+    this.dealer.attach(observer);
   }
 
 }
