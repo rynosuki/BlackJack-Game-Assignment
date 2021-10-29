@@ -46,9 +46,9 @@ class AmericanNewGameStrategy implements NewGameStrategy {
       }
 
       if (i % 2 == 0) {
-        deck.drawCards(dealer, showCard);
-      } else {
         deck.drawCards(player, showCard);
+      } else {
+        deck.drawCards(dealer, showCard);
       }
     }
     return true;

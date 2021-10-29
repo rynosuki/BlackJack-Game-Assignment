@@ -1,14 +1,12 @@
 package model.rules;
 
-import model.Card;
 import model.Dealer;
 import model.Deck;
 import model.Player;
 
-
 class InternationalNewGameStrategy implements NewGameStrategy {
 
-  private int numberOfCardsToDraw; 
+  private int numberOfCardsToDraw;
 
   /**
    * Initializing constructor.
@@ -33,12 +31,12 @@ class InternationalNewGameStrategy implements NewGameStrategy {
     // player.dealCard(c);
 
     for (int i = 0; i < numberOfCardsToDraw; i++) {
-      
+
       if (i % 2 == 0) {
-        deck.drawCards(dealer, true);  
+        deck.drawCards(dealer, true);
       } else {
-        deck.drawCards(player, true);  
-      }            
+        deck.drawCards(player, true);
+      }
     }
 
     return true;
