@@ -22,4 +22,13 @@ public class RulesFactory {
   public NewGameStrategy getNewGameRule() {
     return new AmericanNewGameStrategy();
   }
+
+  /**
+   * Crates the rule to decide who wins on a tie.
+   * 
+   * @return The rule to use.
+   */
+  public WinStrategy getNWinRule() {
+    return new PlayerWins();
+  }
 }
