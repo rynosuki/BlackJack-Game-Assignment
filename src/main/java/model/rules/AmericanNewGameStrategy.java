@@ -1,13 +1,12 @@
 package model.rules;
 
-import model.Card;
 import model.Dealer;
 import model.Deck;
 import model.Player;
 
 class AmericanNewGameStrategy implements NewGameStrategy {
 
-  private int numberOfCardsToDraw; 
+  private int numberOfCardsToDraw;
 
   /**
    * Initializing constructor.
@@ -17,8 +16,8 @@ class AmericanNewGameStrategy implements NewGameStrategy {
   }
 
   /**
-   * Start game with four cards, alternating between giving card to dealer or player.
-   * The last card is not shown to the players.
+   * Start game with four cards, alternating between giving card to dealer or
+   * player. The last card is not shown to the players.
    */
   public boolean newGame(Deck deck, Dealer dealer, Player player) {
     // Card.Mutable c;
@@ -30,7 +29,7 @@ class AmericanNewGameStrategy implements NewGameStrategy {
     // c = deck.getCard();
     // c.show(true);
     // dealer.dealCard(c);
-    
+
     // c = deck.getCard();
     // c.show(true);
     // player.dealCard(c);
@@ -47,10 +46,10 @@ class AmericanNewGameStrategy implements NewGameStrategy {
       }
 
       if (i % 2 == 0) {
-        deck.drawCards(dealer, showCard);  
+        deck.drawCards(dealer, showCard);
       } else {
-        deck.drawCards(player, showCard);  
-      }              
+        deck.drawCards(player, showCard);
+      }
     }
     return true;
   }

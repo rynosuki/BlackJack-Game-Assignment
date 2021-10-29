@@ -1,6 +1,5 @@
 package model;
 
-import model.Card.Mutable;
 import model.rules.HitStrategy;
 import model.rules.NewGameStrategy;
 import model.rules.RulesFactory;
