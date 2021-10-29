@@ -55,31 +55,33 @@ public class Player extends IObserver {
     }
 
     switch (choice) {
-    case PLAY:
-      game.newGame();
-      break;
-    case HIT:
-      game.hit();
-      break;
-    case STAND:
-      game.stand();
-      break;
-    case QUIT:
-      System.exit(0);
-      break;
-    default:
-      return input != 'q';
+      case PLAY:
+        game.newGame();
+        break;
+      case HIT:
+        game.hit();
+        break;
+      case STAND:
+        game.stand();
+        break;
+      case QUIT:
+        System.exit(0);
+        break;
+      default:
+        return input != 'q';
     }
 
     return true;
   }
 
+  /**
+   * Send update from subject.
+   */
   public void update(Mutable c, model.Player player) {
     try {
       view.displayCardD(player, c);
       Thread.sleep(500);
     } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }

@@ -1,6 +1,5 @@
 package model.rules;
 
-import model.Card;
 import model.Player;
 
 class DealerWins implements WinStrategy {

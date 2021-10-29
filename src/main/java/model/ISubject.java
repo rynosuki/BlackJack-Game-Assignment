@@ -8,15 +8,20 @@ import java.util.ArrayList;
  * 
  */
 public abstract class ISubject {
-	private ArrayList<IObserver> observers = new ArrayList<>();
+  private ArrayList<IObserver> observers = new ArrayList<>();
 
-	public void attach(IObserver observer) {
-		this.observers.add(observer);
-	}
+  public void attach(IObserver observer) {
+    this.observers.add(observer);
+  }
 
-	public void notifyAllObservers(Card.Mutable c, Player player) {
-		for (IObserver iObserver : observers) {
-			iObserver.update(c, player);
-		}
-	}
+  /**
+   * Notify all observers.
+   * @param c Card that was drawn.
+   * @param player Player that drew the card.
+   */
+  public void notifyAllObservers(Card.Mutable c, Player player) {
+    for (IObserver observer : observers) {
+      observer.update(c, player);
+    }
+  }
 }

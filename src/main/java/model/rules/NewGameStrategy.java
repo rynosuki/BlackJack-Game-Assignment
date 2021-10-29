@@ -9,7 +9,8 @@ import model.Player;
  */
 public interface NewGameStrategy {
   /**
-   * Encapsulates the start of a new game. I.e. should deal cards to dealer and player according to some rule.
+   * Encapsulates the start of a new game. I.e. should deal
+   * cards to dealer and player according to some rule.
 
    * @param deck The deck to use to get cards from.
    * @param dealer The dealer to deal cards to.
