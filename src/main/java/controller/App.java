@@ -19,6 +19,11 @@ public class App {
     View v = new EnglishView(); // new SwedishView();
     Player ctrl = new Player();
 
+    Editor editor = new Editor();
+    editor.events.subscribe("test", v);
+    // editor.sendNotice();
+    
+
     while (ctrl.play(g, v)) {
 
     }

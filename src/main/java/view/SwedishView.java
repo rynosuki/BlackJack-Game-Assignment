@@ -82,4 +82,10 @@ public class SwedishView implements View {
     System.out.println("Poäng: " + score);
     System.out.println("");
   }
+
+  @Override
+  public void updateIfPlayerGetCard() {
+    // TODO Auto-generated method stub
+    
+  }
 }

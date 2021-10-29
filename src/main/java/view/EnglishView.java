@@ -53,6 +53,7 @@ public class EnglishView implements View {
     }
     System.out.println("Score: " + score);
     System.out.println("");
+
   }
 
   /**
@@ -68,5 +69,17 @@ public class EnglishView implements View {
       System.out.println("You Won!");
     }
 
+  }
+
+  @Override
+  public void updateIfPlayerGetCard() {
+    System.out.println("Player GOT A CARD!!!!!!!!!!!!!!!!!\n");
+    try {
+      Thread.sleep(4000);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    
   }
 }

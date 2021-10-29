@@ -25,10 +25,28 @@ public class Player {
    * @return True as long as the game should continue.
    */
   public boolean play(Game game, View view) {
+
+
+    Editor editor = new Editor();
+    editor.events.subscribe("test", view);
+    //editor.sendNotice();
+
+
+
+
     view.displayWelcomeMessage();
 
     view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
+    if (view.displayDealerHand(game.getDealerHand()) {
+      
+    }
+    editor.sendNotice();
     view.displayPlayerHand(game.getPlayerHand(), game.getPlayerScore());
+    editor.sendNotice();
+    
+
+    
+    
 
     if (game.isGameOver()) {
       view.displayGameOver(game.isDealerWinner());

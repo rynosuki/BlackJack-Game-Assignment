@@ -3,6 +3,9 @@ package model;
 import java.util.LinkedList;
 import java.util.List;
 
+import controller.Editor;
+import view.View;
+
 /**
  * Represents a player in the Black Jack game. A Player has a hand of cards.
  */
@@ -11,8 +14,19 @@ public class Player {
   private List<Card.Mutable> hand;
   protected final int maxScore = 21;
 
+
+  Editor editor = new Editor();
+  View view;
+
+
+
   public Player() {
     hand = new LinkedList<Card.Mutable>();
+    
+    
+    //editor.events.subscribe("test", view);
+
+
   }
 
   /**
@@ -22,6 +36,7 @@ public class Player {
    */
   public void dealCard(Card.Mutable addToHand) {
     hand.add(addToHand);
+    editor.sendNotice();
   }
 
   /**
