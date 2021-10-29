@@ -106,4 +106,12 @@ public class Game {
     return player.calcScore();
   }
 
+  public Player getPlayer() {
+    return this.player;
+  }
+
+  public Dealer getDealer() {
+    return this.dealer;
+  }
+
 }

@@ -1,21 +1,24 @@
 package controller;
 
+import model.Card.Mutable;
 import model.Game;
 import view.View;
 
 /**
  * Scenario controller for playing the game.
  */
-public class Player {
+public class Player extends IObserver {
 
   private enum Choice {
     PLAY, HIT, STAND, QUIT, DEFAULT
   }
 
+  private View view;
+
   private final char play = 'p';
-	private final char hit = 'h';
-	private final char stand = 's';
-	private final char quit = 'q';
+  private final char hit = 'h';
+  private final char stand = 's';
+  private final char quit = 'q';
 
   /**
    * Runs the play use case.
@@ -25,6 +28,7 @@ public class Player {
    * @return True as long as the game should continue.
    */
   public boolean play(Game game, View view) {
+    this.view = view;
     view.displayWelcomeMessage();
 
     view.displayDealerHand(game.getDealerHand(), game.getDealerScore());
@@ -64,5 +68,15 @@ public class Player {
     }
 
     return true;
+  }
+
+  public void update(Mutable c, model.Player player) {
+    try {
+      view.displayCardD(player, c);
+      Thread.sleep(500);
+    } catch (InterruptedException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 }

@@ -20,7 +20,7 @@ public class SwedishView implements View {
 
   /**
    * Returns pressed characters from the keyboard.
-
+   * 
    * @return the pressed character.
    */
   public int getInput() {
@@ -38,7 +38,7 @@ public class SwedishView implements View {
 
   /**
    * Displays a card.
-
+   * 
    * @param card The card to display.
    */
   public void displayCard(model.Card card) {
@@ -46,8 +46,8 @@ public class SwedishView implements View {
       System.out.println("Dolt Kort");
     } else {
       String[] colors = { "Hjärter", "Spader", "Ruter", "Klöver" };
-      String[] values = { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio",
-                          "knekt", "dam", "kung", "ess" };
+      String[] values = { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "knekt", "dam", "kung",
+          "ess" };
       System.out.println("" + colors[card.getColor().ordinal()] + " " + values[card.getValue().ordinal()]);
     }
   }
@@ -62,7 +62,7 @@ public class SwedishView implements View {
 
   /**
    * Displays the winner of the game.
-
+   * 
    * @param dealerIsWinner True if the dealer is the winner.
    */
   public void displayGameOver(boolean dealerIsWinner) {
@@ -81,5 +81,15 @@ public class SwedishView implements View {
     }
     System.out.println("Poäng: " + score);
     System.out.println("");
+  }
+
+  public void displayCardD(model.Player p, model.Card.Mutable c) {
+    if (p.getClass().getName().contains("Player")) {
+      System.out.print("Spelaren fick ett  ");
+      displayCard(c);
+    } else {
+      System.out.print("Croupiern fick ett ");
+      displayCard(c);
+    }
   }
 }

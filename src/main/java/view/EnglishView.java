@@ -18,7 +18,7 @@ public class EnglishView implements View {
 
   /**
    * Returns pressed characters from the keyboard.
-
+   * 
    * @return the pressed character.
    */
   public int getInput() {
@@ -57,7 +57,7 @@ public class EnglishView implements View {
 
   /**
    * Displays the winner of the game.
-
+   * 
    * @param dealerIsWinner True if the dealer is the winner.
    */
   public void displayGameOver(boolean dealerIsWinner) {
@@ -68,5 +68,15 @@ public class EnglishView implements View {
       System.out.println("You Won!");
     }
 
+  }
+
+  public void displayCardD(model.Player p, model.Card.Mutable c) {
+    if (p.getClass().getName().contains("Player")) {
+      System.out.print("Player got an ");
+      displayCard(c);
+    } else {
+      System.out.print("Dealer got an ");
+      displayCard(c);
+    }
   }
 }
