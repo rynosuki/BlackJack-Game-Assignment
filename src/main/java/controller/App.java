@@ -16,7 +16,7 @@ public class App {
    */
   public static void main(String[] args) {
     Game g = new Game();
-    View v = new SwedishView(); // new EnglishView();
+    View v = new EnglishView(); // new SwedishView();
     Player ctrl = new Player();
     g.getPlayer().attach(ctrl);
     g.getDealer().attach(ctrl);
