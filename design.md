@@ -1,9 +1,8 @@
-
 # BlackJack OO-Design
 ## Updated Class Diagram
 The finished diagram, there is nothing really to explain about it.
 
-![updated class diagram](img/class_diagram_updated.jpeg)
+![updated class diagram](img/class-diagram_updated.jpeg)
 
 ## Class Diagram
 The application uses the model-view-controller (MVC) architectural pattern. The view is passive and gets called from the controller. 
