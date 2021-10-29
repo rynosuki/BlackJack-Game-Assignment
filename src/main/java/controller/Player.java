@@ -12,6 +12,11 @@ public class Player {
     PLAY, HIT, STAND, QUIT, DEFAULT
   }
 
+  private final char play = 'p';
+	private final char hit = 'h';
+	private final char stand = 's';
+	private final char quit = 'q';
+
   /**
    * Runs the play use case.
    * 
@@ -31,13 +36,13 @@ public class Player {
 
     int input = view.getInput();
     Choice choice = Choice.DEFAULT;
-    if (input == 'p') {
+    if (input == play) {
       choice = Choice.PLAY;
-    } else if (input == 'h') {
+    } else if (input == hit) {
       choice = Choice.HIT;
-    } else if (input == 's') {
+    } else if (input == stand) {
       choice = Choice.STAND;
-    } else if (input == 'q') {
+    } else if (input == quit) {
       choice = Choice.QUIT;
     }
 
