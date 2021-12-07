@@ -6,6 +6,11 @@ package view;
  */
 public class SwedishView implements View {
 
+  private static final String stand = "s";
+  private static final String play = "p";
+  private static final String hit = "n";
+  private static final String quit = "q";
+
   /**
    * Shows a welcome message.
    * 
@@ -17,7 +22,8 @@ public class SwedishView implements View {
 
     System.out.println("Hej Black Jack Världen");
     System.out.println("----------------------");
-    System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+    System.out.println("Skriv " + play + " för att Spela, " + hit + " för nytt kort, "
+        + stand + " för att stanna " + quit + " för att avsluta\n");
   }
 
   /**
@@ -26,16 +32,30 @@ public class SwedishView implements View {
    * @return the pressed character.
    * 
    */
-  public int getInput() {
+  public Choice getInput() {
     try {
       int c = System.in.read();
       while (c == '\r' || c == '\n') {
         c = System.in.read();
       }
-      return c;
+
+      String choice = Integer.toString(c);
+
+      switch (choice) {
+        case play:
+          return Choice.PLAY;
+        case hit:
+          return Choice.HIT;
+        case stand:
+          return Choice.STAND;
+        case quit:
+          return Choice.QUIT;
+        default:
+          return null;
+      }
     } catch (java.io.IOException e) {
       System.out.println("" + e);
-      return 0;
+      return null;
     }
   }
 

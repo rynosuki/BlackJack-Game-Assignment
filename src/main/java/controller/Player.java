@@ -2,24 +2,16 @@ package controller;
 
 import model.Card.Mutable;
 import model.Game;
+import model.InterfaceObserver;
 import view.View;
+import view.View.Choice;
 
 /**
  * Scenario controller for playing the game.
  * 
  */
-public class Player extends IObserver {
-
-  private enum Choice {
-    PLAY, HIT, STAND, QUIT, DEFAULT
-  }
-
+public class Player extends InterfaceObserver {
   private View view;
-
-  private static final char play = 'p';
-  private static final char hit = 'h';
-  private static final char stand = 's';
-  private static final char quit = 'q';
 
   /**
    * Runs the play use case.
@@ -42,19 +34,9 @@ public class Player extends IObserver {
       view.displayGameOver(game.isDealerWinner());
     }
 
-    int input = view.getInput();
-    Choice choice = Choice.DEFAULT;
-    if (input == play) {
-      choice = Choice.PLAY;
-    } else if (input == hit) {
-      choice = Choice.HIT;
-    } else if (input == stand) {
-      choice = Choice.STAND;
-    } else if (input == quit) {
-      choice = Choice.QUIT;
-    }
+    Choice input = view.getInput();
 
-    switch (choice) {
+    switch (input) {
       case PLAY:
         game.newGame();
         break;
@@ -68,7 +50,7 @@ public class Player extends IObserver {
         System.exit(0);
         break;
       default:
-        return input != 'q';
+        return false;
     }
 
     return true;

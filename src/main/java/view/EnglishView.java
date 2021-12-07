@@ -1,10 +1,18 @@
 package view;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /**
  * Implements an english console view.
  * 
  */
 public class EnglishView implements View {
+
+  private static final String stand = "s";
+  private static final String play = "p";
+  private static final String hit = "h";
+  private static final String quit = "q";
 
   /**
    * Shows a welcome message.
@@ -15,7 +23,8 @@ public class EnglishView implements View {
       System.out.print("\n");
     }
     System.out.println("Hello Black Jack World");
-    System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
+    System.out.println("Type " + play + " to Play, " + hit + " to Hit, "
+        + stand + " to Stand or " + quit + " to Quit\n");
   }
 
   /**
@@ -24,16 +33,26 @@ public class EnglishView implements View {
    * @return the pressed character.
    * 
    */
-  public int getInput() {
+  public Choice getInput() {
     try {
-      int c = System.in.read();
-      while (c == '\r' || c == '\n') {
-        c = System.in.read();
+      BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+      String choice = read.readLine();
+
+      switch (choice) {
+        case play:
+          return Choice.PLAY;
+        case hit:
+          return Choice.HIT;
+        case stand:
+          return Choice.STAND;
+        case quit:
+          return Choice.QUIT;
+        default:
+          return null;
       }
-      return c;
     } catch (java.io.IOException e) {
       System.out.println("" + e);
-      return 0;
+      return null;
     }
   }
 
