@@ -69,9 +69,10 @@ public class SwedishView implements View {
       System.out.println("Dolt Kort");
     } else {
       String[] colors = { "Hjärter", "Spader", "Ruter", "Klöver" };
-      String[] values = { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "knekt", "dam", "kung",
-          "ess" };
-      System.out.println("" + colors[card.getColor().ordinal()] + " " + values[card.getValue().ordinal()]);
+      String[] values = { "två", "tre", "fyra", "fem", "sex", "sju", "åtta",
+        "nio", "tio", "knekt", "dam", "kung", "ess" };
+      System.out.println("" + colors[card.getColor().ordinal()] + " "
+          + values[card.getValue().ordinal()]);
     }
   }
 
@@ -107,6 +108,9 @@ public class SwedishView implements View {
     System.out.println("");
   }
 
+  /**
+   * Display card.
+   */
   public void displayCardD(model.Player p, model.Card.Mutable c) {
     if (p.getClass().getName().contains("Player")) {
       System.out.print("Spelaren fick ett  ");
