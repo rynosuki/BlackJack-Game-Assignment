@@ -53,18 +53,4 @@ public class Deck {
     }
   }
 
-  /**
-   * Get a card from the deck, set visability and give it to a player.
-   * 
-   * @param player   the dealer or player.
-   * @param showCard set to true to show card or set to false to hide card.
-   */
-  public void drawCards(Player player, boolean showCard) {
-    Card.Mutable c;
-
-    c = this.getCard();
-    c.show(showCard);
-    player.dealCard(c);
-  }
-
 }

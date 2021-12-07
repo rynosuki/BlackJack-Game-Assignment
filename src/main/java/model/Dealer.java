@@ -39,7 +39,7 @@ public class Dealer extends Player {
       deck = new Deck();
       clearHand();
       player.clearHand();
-      return newGameRule.newGame(deck, this, player);
+      return newGameRule.newGame(this, player);
     }
     return false;
   }
@@ -57,7 +57,7 @@ public class Dealer extends Player {
       // c.show(true);
       // player.dealCard(c);
 
-      deck.drawCards(player, true);
+      drawCards(player, true);
 
       return true;
     }
@@ -103,11 +103,26 @@ public class Dealer extends Player {
         // c.show(true);
         // dealCard(c);
 
-        deck.drawCards(this, true);
+        drawCards(this, true);
       }
       return true;
     }
     return false;
+  }
+
+
+  /**
+   * Get a card from the deck, set visability and give it to a player.
+   * 
+   * @param player   the dealer or player.
+   * @param showCard set to true to show card or set to false to hide card.
+   */
+  public void drawCards(Player player, boolean showCard) {
+    Card.Mutable c;
+
+    c = deck.getCard();
+    c.show(showCard);
+    player.dealCard(c);
   }
 
 }

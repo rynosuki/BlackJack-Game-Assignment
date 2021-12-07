@@ -1,7 +1,6 @@
 package model.rules;
 
 import model.Dealer;
-import model.Deck;
 import model.Player;
 
 class AmericanNewGameStrategy implements NewGameStrategy {
@@ -19,7 +18,7 @@ class AmericanNewGameStrategy implements NewGameStrategy {
    * Start game with four cards, alternating between giving card to dealer or
    * player. The last card is not shown to the players.
    */
-  public boolean newGame(Deck deck, Dealer dealer, Player player) {
+  public boolean newGame(Dealer dealer, Player player) {
     for (int i = 0; i < this.numberOfCardsToDraw; i++) {
       boolean showCard = true;
 
@@ -28,9 +27,9 @@ class AmericanNewGameStrategy implements NewGameStrategy {
       }
 
       if (i % 2 == 0) {
-        deck.drawCards(player, showCard);
+        dealer.drawCards(player, showCard);
       } else {
-        deck.drawCards(dealer, showCard);
+        dealer.drawCards(dealer, showCard);
       }
     }
     return true;
