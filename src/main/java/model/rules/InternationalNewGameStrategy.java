@@ -1,7 +1,6 @@
 package model.rules;
 
 import model.Dealer;
-import model.Deck;
 import model.Player;
 
 class InternationalNewGameStrategy implements NewGameStrategy {
@@ -15,13 +14,13 @@ class InternationalNewGameStrategy implements NewGameStrategy {
     this.numberOfCardsToDraw = 3;
   }
 
-  public boolean newGame(Deck deck, Dealer dealer, Player player) {
+  public boolean newGame(Dealer dealer, Player player) {
     for (int i = 0; i < numberOfCardsToDraw; i++) {
 
       if (i % 2 == 0) {
-        deck.drawCards(dealer, true);
+        dealer.drawCards(dealer, true);
       } else {
-        deck.drawCards(player, true);
+        dealer.drawCards(player, true);
       }
     }
 
