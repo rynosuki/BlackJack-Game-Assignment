@@ -19,7 +19,6 @@ public class App {
     View v = new EnglishView(); // new SwedishView();
     Player ctrl = new Player();
     g.attachObserver(ctrl);
-    g.attachObserver(ctrl);
 
     while (ctrl.play(g, v)) {
 

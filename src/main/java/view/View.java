@@ -7,6 +7,13 @@ package view;
 public interface View {
 
   /**
+   * Choice for user.
+   */
+  enum Choice {
+    PLAY, HIT, STAND, QUIT
+  }
+
+  /**
    * Shows a welcome message.
    * 
    */
@@ -18,7 +25,7 @@ public interface View {
    * @return the pressed character.
    * 
    */
-  int getInput();
+  Choice getInput();
 
   /**
    * Displays a card.

@@ -1,7 +1,5 @@
 package model;
 
-import controller.IObserver;
-
 /**
  * Represents the entirety of the game. Acts as a Facade to the model.
  */
@@ -81,7 +79,7 @@ public class Game {
   /**
    * Gets the cards currently in the player's hand.
    * 
-   * @return The palyer's cards.
+   * @return The player's cards.
    * 
    */
   public Iterable<Card> getPlayerHand() {
@@ -108,7 +106,7 @@ public class Game {
     return player.calcScore();
   }
 
-  public void attachObserver(IObserver observer) {
+  public void attachObserver(InterfaceObserver observer) {
     this.player.attach(observer);
     this.dealer.attach(observer);
   }
