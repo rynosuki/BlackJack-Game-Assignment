@@ -2,7 +2,7 @@
 ## Updated Class Diagram
 The finished diagram, there is nothing really to explain about it.
 
-![updated class diagram](img/class-diagram_updated.jpeg)
+![updated class diagram](img/class-diagram_updated_2.jpeg)
 
 ## Class Diagram
 The application uses the model-view-controller (MVC) architectural pattern. The view is passive and gets called from the controller. 
