@@ -1,5 +1,8 @@
 package view;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /**
  * Implements a Swedish console view.
  * 
@@ -34,12 +37,8 @@ public class SwedishView implements View {
    */
   public Choice getInput() {
     try {
-      int c = System.in.read();
-      while (c == '\r' || c == '\n') {
-        c = System.in.read();
-      }
-
-      String choice = Integer.toString(c);
+      BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+      String choice = read.readLine();
 
       switch (choice) {
         case play:
