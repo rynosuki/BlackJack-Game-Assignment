@@ -1,0 +1,18 @@
+Workload share:
+
+Robin:
+Requirement 3, Requirement 4
+
+Emma:
+Requirement 7
+2021-10-28
+funderar på att ha funktionen "drawCards()" i Deck elelr Dealer....
+Ändrat/kommenteratbort gammal kod i:
+- Dealer > public boolean hit();
+- Dealer > public boolean stand();
+- Ändrat i Intetnational- och AmericanNewGameStrategy
+
+
+
+Mattias:
+Requirement 5

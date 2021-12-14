@@ -1,5 +1,8 @@
 # BlackJack OO-Design
-This document describes the current design. Note that some dependencies have been left out for readability reasons. For example there are a lot of dependencies to the Card class.
+## Updated Class Diagram
+The finished diagram, there is nothing really to explain about it.
+
+![updated class diagram](img/class-diagram_updated_2.jpeg)
 
 ## Class Diagram
 The application uses the model-view-controller (MVC) architectural pattern. The view is passive and gets called from the controller. 

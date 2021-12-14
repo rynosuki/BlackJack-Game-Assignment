@@ -1,36 +1,58 @@
 package view;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /**
  * Implements an english console view.
+ * 
  */
 public class EnglishView implements View {
 
+  private static final String stand = "s";
+  private static final String play = "p";
+  private static final String hit = "h";
+  private static final String quit = "q";
+
   /**
    * Shows a welcome message.
+   * 
    */
   public void displayWelcomeMessage() {
     for (int i = 0; i < 50; i++) {
       System.out.print("\n");
     }
     System.out.println("Hello Black Jack World");
-    System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
+    System.out.println("Type " + play + " to Play, " + hit + " to Hit, "
+        + stand + " to Stand or " + quit + " to Quit\n");
   }
 
   /**
    * Returns pressed characters from the keyboard.
-
+   * 
    * @return the pressed character.
+   * 
    */
-  public int getInput() {
+  public Choice getInput() {
     try {
-      int c = System.in.read();
-      while (c == '\r' || c == '\n') {
-        c = System.in.read();
+      BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+      String choice = read.readLine();
+
+      switch (choice) {
+        case play:
+          return Choice.PLAY;
+        case hit:
+          return Choice.HIT;
+        case stand:
+          return Choice.STAND;
+        case quit:
+          return Choice.QUIT;
+        default:
+          return null;
       }
-      return c;
     } catch (java.io.IOException e) {
       System.out.println("" + e);
-      return 0;
+      return null;
     }
   }
 
@@ -57,8 +79,9 @@ public class EnglishView implements View {
 
   /**
    * Displays the winner of the game.
-
+   * 
    * @param dealerIsWinner True if the dealer is the winner.
+   * 
    */
   public void displayGameOver(boolean dealerIsWinner) {
     System.out.println("GameOver: ");
@@ -68,5 +91,23 @@ public class EnglishView implements View {
       System.out.println("You Won!");
     }
 
+  }
+
+  /**
+   * Displays the card recently drawns.
+   * 
+   * @param p Player that drew the card. Used to determine what to print.
+   * 
+   * @param c Card that that was drawn.
+   * 
+   */
+  public void displayCardD(model.Player p, model.Card.Mutable c) {
+    if (p.getClass().getName().contains("Player")) {
+      System.out.print("Player got an ");
+      displayCard(c);
+    } else {
+      System.out.print("Dealer got an ");
+      displayCard(c);
+    }
   }
 }

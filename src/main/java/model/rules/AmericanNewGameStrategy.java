@@ -1,31 +1,37 @@
 package model.rules;
 
-import model.Card;
 import model.Dealer;
-import model.Deck;
 import model.Player;
 
 class AmericanNewGameStrategy implements NewGameStrategy {
 
-  public boolean newGame(Deck deck, Dealer dealer, Player player) {
-    Card.Mutable c;
+  private int numberOfCardsToDraw;
 
-    c = deck.getCard();
-    c.show(true);
-    player.dealCard(c);
+  /**
+   * Initializing constructor.
+   */
+  public AmericanNewGameStrategy() {
+    this.numberOfCardsToDraw = 4;
+  }
 
-    c = deck.getCard();
-    c.show(true);
-    dealer.dealCard(c);
+  /**
+   * Start game with four cards, alternating between giving card to dealer or
+   * player. The last card is not shown to the players.
+   */
+  public boolean newGame(Dealer dealer, Player player) {
+    for (int i = 0; i < this.numberOfCardsToDraw; i++) {
+      boolean showCard = true;
 
-    c = deck.getCard();
-    c.show(true);
-    player.dealCard(c);
+      if (i == (this.numberOfCardsToDraw - 1)) {
+        showCard = false;
+      }
 
-    c = deck.getCard();
-    c.show(false);
-    dealer.dealCard(c);
-
+      if (i % 2 == 0) {
+        dealer.drawCards(player, showCard);
+      } else {
+        dealer.drawCards(dealer, showCard);
+      }
+    }
     return true;
   }
 }

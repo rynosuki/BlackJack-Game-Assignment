@@ -1,12 +1,22 @@
 package view;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /**
  * Implements a Swedish console view.
+ * 
  */
 public class SwedishView implements View {
 
+  private static final String stand = "s";
+  private static final String play = "p";
+  private static final String hit = "n";
+  private static final String quit = "q";
+
   /**
    * Shows a welcome message.
+   * 
    */
   public void displayWelcomeMessage() {
     for (int i = 0; i < 50; i++) {
@@ -15,40 +25,54 @@ public class SwedishView implements View {
 
     System.out.println("Hej Black Jack Världen");
     System.out.println("----------------------");
-    System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
+    System.out.println("Skriv " + play + " för att Spela, " + hit + " för nytt kort, "
+        + stand + " för att stanna " + quit + " för att avsluta\n");
   }
 
   /**
    * Returns pressed characters from the keyboard.
-
+   * 
    * @return the pressed character.
+   * 
    */
-  public int getInput() {
+  public Choice getInput() {
     try {
-      int c = System.in.read();
-      while (c == '\r' || c == '\n') {
-        c = System.in.read();
+      BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+      String choice = read.readLine();
+
+      switch (choice) {
+        case play:
+          return Choice.PLAY;
+        case hit:
+          return Choice.HIT;
+        case stand:
+          return Choice.STAND;
+        case quit:
+          return Choice.QUIT;
+        default:
+          return null;
       }
-      return c;
     } catch (java.io.IOException e) {
       System.out.println("" + e);
-      return 0;
+      return null;
     }
   }
 
   /**
    * Displays a card.
-
+   * 
    * @param card The card to display.
+   * 
    */
   public void displayCard(model.Card card) {
     if (card.getColor() == model.Card.Color.Hidden) {
       System.out.println("Dolt Kort");
     } else {
       String[] colors = { "Hjärter", "Spader", "Ruter", "Klöver" };
-      String[] values = { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio",
-                          "knekt", "dam", "kung", "ess" };
-      System.out.println("" + colors[card.getColor().ordinal()] + " " + values[card.getValue().ordinal()]);
+      String[] values = { "två", "tre", "fyra", "fem", "sex", "sju", "åtta",
+        "nio", "tio", "knekt", "dam", "kung", "ess" };
+      System.out.println("" + colors[card.getColor().ordinal()] + " "
+          + values[card.getValue().ordinal()]);
     }
   }
 
@@ -62,8 +86,9 @@ public class SwedishView implements View {
 
   /**
    * Displays the winner of the game.
-
+   * 
    * @param dealerIsWinner True if the dealer is the winner.
+   * 
    */
   public void displayGameOver(boolean dealerIsWinner) {
     System.out.println("Slut: ");
@@ -81,5 +106,18 @@ public class SwedishView implements View {
     }
     System.out.println("Poäng: " + score);
     System.out.println("");
+  }
+
+  /**
+   * Display card.
+   */
+  public void displayCardD(model.Player p, model.Card.Mutable c) {
+    if (p.getClass().getName().contains("Player")) {
+      System.out.print("Spelaren fick ett  ");
+      displayCard(c);
+    } else {
+      System.out.print("Croupiern fick ett ");
+      displayCard(c);
+    }
   }
 }

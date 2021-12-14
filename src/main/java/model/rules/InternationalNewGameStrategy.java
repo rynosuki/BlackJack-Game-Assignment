@@ -1,27 +1,28 @@
 package model.rules;
 
-import model.Card;
 import model.Dealer;
-import model.Deck;
 import model.Player;
-
 
 class InternationalNewGameStrategy implements NewGameStrategy {
 
-  public boolean newGame(Deck deck, Dealer dealer, Player player) {
-    Card.Mutable c;
+  private int numberOfCardsToDraw;
 
-    c = deck.getCard();
-    c.show(true);
-    player.dealCard(c);
+  /**
+   * Initializing constructor.
+   */
+  public InternationalNewGameStrategy() {
+    this.numberOfCardsToDraw = 3;
+  }
 
-    c = deck.getCard();
-    c.show(true);
-    dealer.dealCard(c);
+  public boolean newGame(Dealer dealer, Player player) {
+    for (int i = 0; i < numberOfCardsToDraw; i++) {
 
-    c = deck.getCard();
-    c.show(true);
-    player.dealCard(c);
+      if (i % 2 == 0) {
+        dealer.drawCards(dealer, true);
+      } else {
+        dealer.drawCards(player, true);
+      }
+    }
 
     return true;
   }
